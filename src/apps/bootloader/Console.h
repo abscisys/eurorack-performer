@@ -19,7 +19,7 @@ private:
 
 extern "C" {
 
-void printf(char const *fmt, ...) __attribute__((__format__(__printf__, 1, 2)));
+void printf(const char* fmt, ...) __attribute__((__format__(__printf__, 1, 2)));
 
 } // extern "C"
 

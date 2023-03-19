@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdlib>
 #include <array>
 #include <utility>
 #include <functional>

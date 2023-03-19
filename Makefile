@@ -50,7 +50,7 @@ tools_clean: arm_sdk_clean openocd_clean
 .PHONY: arm_sdk_install
 
 # Source: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
-ARM_SDK_URL_BASE := https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2?rev=78196d3461ba4c9089a67b5f33edf82a&hash=5631ACEF1F8F237389F14B41566964EC
+ARM_SDK_URL_BASE := https://developer.arm.com/-/media/Files/downloads/gnu-rm/8-2019q3/RC1.1/gcc-arm-none-eabi-8-2019-q3-update-linux.tar.bz2?rev=c34d758abe0c476ea2deaf8c6e16a8a2&revision=c34d758a-be0c-476e-a2de-af8c6e16a8a2?product=Downloads,64-bit,,Linux,8-2019-q3-update
 
 ifdef LINUX
   ARM_SDK_URL := $(ARM_SDK_URL_BASE)-linux.tar.bz2

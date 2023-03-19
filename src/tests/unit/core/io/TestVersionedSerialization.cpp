@@ -84,7 +84,9 @@ static void readVersion1(const void *buf, size_t len) {
     MemoryReader memoryReader(buf, len);
     VersionedSerializedReader reader([&memoryReader] (void *data, size_t len) { memoryReader.read(data, len); }, 1);
     Data1 data;
-    std::memset(&data, 0, sizeof(data));
+    data.field1 = 0;
+    data.field2 = 0;
+    data.field3 = 0;
     reader.read(data.field1);
     reader.read(data.field2);
     reader.read(data.field3);
@@ -99,7 +101,10 @@ static void readVersion2(const void *buf, size_t len) {
     MemoryReader memoryReader(buf, len);
     VersionedSerializedReader reader([&memoryReader] (void *data, size_t len) { memoryReader.read(data, len); }, 2);
     Data2 data;
-    std::memset(&data, 0, sizeof(data));
+    data.field1 = 0;
+    data.field2 = 0;
+    data.field4 = 0;
+    data.field3 = 0;
     reader.read(data.field1);
     reader.read(data.field2);
     reader.read(data.field4, VERSION(2));
@@ -116,7 +121,11 @@ static void readVersion3(const void *buf, size_t len) {
     MemoryReader memoryReader(buf, len);
     VersionedSerializedReader reader([&memoryReader] (void *data, size_t len) { memoryReader.read(data, len); }, 3);
     Data3 data;
-    std::memset(&data, 0, sizeof(data));
+    data.field1 = 0;
+    data.field2 = 0;
+    data.field4 = 0;
+    data.field5 = 0;
+    data.field3 = 0;
     reader.read(data.field1);
     reader.read(data.field2);
     reader.read(data.field4, VERSION(2));
@@ -135,7 +144,10 @@ static void readVersion4(const void *buf, size_t len) {
     MemoryReader memoryReader(buf, len);
     VersionedSerializedReader reader([&memoryReader] (void *data, size_t len) { memoryReader.read(data, len); }, 4);
     Data4 data;
-    std::memset(&data, 0, sizeof(data));
+    data.field1 = 0;
+    data.field2 = 0;
+    data.field5 = 0;
+    data.field3 = 0;
     reader.read(data.field1);
     reader.read(data.field2);
     reader.skip<int8_t>(VERSION(2), VERSION(4));

@@ -481,10 +481,12 @@ static void device_enumerate(usbh_device_t *dev, usbh_packet_callback_data_t cb_
 			switch (cb_data.status) {
 			case USBH_PACKET_CALLBACK_STATUS_OK:
 				{
+#ifdef USART_DEBUG
 					struct usb_device_descriptor *ddt =
 							(struct usb_device_descriptor *)&usbh_buffer[0];
 					LOG_PRINTF("Found device with vid=0x%04x pid=0x%04x\n", ddt->idVendor, ddt->idProduct);
 					LOG_PRINTF("class=0x%02x subclass=0x%02x protocol=0x%02x\n", ddt->bDeviceClass, ddt->bDeviceSubClass, ddt->bDeviceProtocol);
+#endif
 					CONTINUE_WITH(USBH_ENUM_STATE_CONFIGURATION_DT_HEADER_READ_SETUP);
 				}
 				break;

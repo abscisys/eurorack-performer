@@ -2,9 +2,9 @@
 
 CURRDIR=$(pwd)
 
-echo "**************"
-echo "* STM32 build*"
-echo "**************"
+echo "***************"
+echo "* STM32 build *"
+echo "***************"
 cd ${CURRDIR}
 
 echo ">>> Installing tools ..."
@@ -33,7 +33,7 @@ echo "*******************"
 cd ${CURRDIR}
 
 echo ">>> Install Ubuntu dependencies ..."
-sudo apt install -y libsdl2-dev libasound2-dev mesa-common-dev python3.7 python3.7-dev
+sudo apt install -y libsdl2-dev libasound2-dev mesa-common-dev python3.11 python3.11-dev
 echo "<<< Ubuntu dependencies installed"
 
 echo ""
@@ -51,13 +51,15 @@ echo "<<< Build simulator completed"
 echo ""
 echo ""
 
-echo "****************************"
-echo "* Simulation platfor build *"
-echo "****************************"
+echo "*****************************"
+echo "* Simulation platform build *"
+echo "*****************************"
 cd ${CURRDIR}
 
 echo ">>> Setting up simulation platform ..."
-git submodule add https://github.com/emscripten-core/emsdk.git
+if [[ ! -e ${CURRDIR}/emsdk ]]; then
+    git submodule add https://github.com/emscripten-core/emsdk.git
+fi
 git submodule update --init --recursive emsdk
 ./emsdk/emsdk install latest
 ./emsdk/emsdk activate latest
@@ -69,8 +71,7 @@ echo ""
 
 echo ">>> Building simulation platform ..."
 cd build/sim/www
-make -j
-make deploy-simulator
+make -j all
 echo "<<< Build simulation platform completed"
 
 echo ""

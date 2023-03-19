@@ -16,3 +16,6 @@
 [submodule "src/platform/sim/libs/nanovg"]
 	path = src/platform/sim/libs/nanovg
 	url = https://github.com/memononen/nanovg.git
+[submodule "emsdk"]
+	path = emsdk
+	url = https://github.com/emscripten-core/emsdk.git
